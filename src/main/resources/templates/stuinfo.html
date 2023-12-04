@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>个人信息</title>
+</head>
+<body>
+    <h1>请填写您的个人信息</h1>
+    <form action="/courseselect" method="post" th:object="${student}">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" th:field="*{name}"><br>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">错误信息</p><br>
+
+        <label for="studentId">学号:</label>
+        <input type="text" id="studentId" name="studentId" th:field="*{studentId}"><br>
+        <p th:if="${#fields.hasErrors('studentId')}" th:errors="*{studentId}">错误信息</p><br>
+
+        <label for="grade">年级:</label>
+        <input type="text" id="grade" name="grade" th:field="*{grade}"><br>
+        <p th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}">错误信息</p><br>
+
+        <label for="major">专业:</label>
+        <input type="text" id="major" name="major" th:field="*{major}"><br>
+        <p th:if="${#fields.hasErrors('major')}" th:errors="*{major}">错误信息</p><br>
+
+        <label for="college">学院:</label>
+        <input type="text" id="college" name="college" th:field="*{college}"><br>
+        <p th:if="${#fields.hasErrors('college')}" th:errors="*{college}">错误信息</p><br>
+
+        <button type="submit">进入选课</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>选课页面</title>
+</head>
+<body>
+    <h1>选课</h1>
+    <form action="/result" method="post" th:object="${student}">
+        <div th:each="course: ${courses}">
+            <input type="checkbox" th:value="${course.name}" name="selectedCourses"/>
+            <label th:text="${course.name}"></label><br/>
+        </div>
+        <input type="hidden" th:field="*{name}"/>
+        <input type="hidden" th:field="*{studentId}"/>
+        <input type="hidden" th:field="*{grade}"/>
+        <input type="hidden" th:field="*{major}"/>
+        <input type="hidden" th:field="*{college}"/>
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>
